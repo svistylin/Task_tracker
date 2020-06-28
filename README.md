@@ -7,7 +7,7 @@ Swagger 2
 PostgreSQL
 Junit 5 
 
-To start this application: 
+To start use this application: 
 1) Clone project: https://github.com/svistylin/Task_Tracker.git 
 2) Download and install PostgreSQL https://www.postgresql.org/download/ or make Docker conatainer https://hub.docker.com/_/postgres. 
 3) Open project in your IDE.
