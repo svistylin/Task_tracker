@@ -35,14 +35,20 @@ public class Task  extends BaseEntity{
     @Column
     boolean deleted;
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private User maker;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
     public TaskDto toDto() {
-        return null;
+        TaskDto dto = new TaskDto();
+        dto.setId(this.id);
+        dto.setTitle(this.title);
+        dto.setDescription(this.description);
+        dto.setDeadlineDate(this.deadlineDate);
+        dto.setMaker(this.maker.toDto());
+        return dto;
     }
 
     public Task() {

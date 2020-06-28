@@ -13,5 +13,7 @@ public interface TaskRepository extends CrudRepository<Task, Long> {
 
     List<Task> findAll(Specification<Task> specification);
 
+    List<Task> findAll();
+
     Optional<Task> findByIdAndDeletedFalse(Long id);
 }

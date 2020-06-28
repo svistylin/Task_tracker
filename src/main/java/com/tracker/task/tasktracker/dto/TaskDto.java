@@ -1,6 +1,5 @@
 package com.tracker.task.tasktracker.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tracker.task.tasktracker.entity.Task;
 
 import java.time.LocalDate;
@@ -11,8 +10,6 @@ public class TaskDto {
     private String title;
     private String description;
     private LocalDate deadlineDate;
-
-    @JsonIgnore
     private UserDto maker;
 
     public Task toTask() {

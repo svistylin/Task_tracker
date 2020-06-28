@@ -2,6 +2,7 @@ package com.tracker.task.tasktracker.service;
 
 import com.tracker.task.tasktracker.dto.TaskDto;
 import com.tracker.task.tasktracker.entity.Status;
+import com.tracker.task.tasktracker.entity.Task;
 import com.tracker.task.tasktracker.security.jwt.JwtUser;
 
 import java.time.LocalDate;
@@ -9,11 +10,15 @@ import java.util.List;
 
 public interface TaskService {
 
+    List<TaskDto> getAll();
+
+    TaskDto findById(Long id);
+
     TaskDto save(TaskDto taskDto, JwtUser jwtUser);
 
     TaskDto update(TaskDto taskDto);
 
-    TaskDto delete (TaskDto taskDto);
+    TaskDto delete(TaskDto taskDto);
 
     List<TaskDto> filter(String status, LocalDate usersCreatedDate, boolean sortedFromOldToNew);
 

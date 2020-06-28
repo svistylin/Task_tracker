@@ -35,6 +35,15 @@ public class TaskController {
         return taskService.filter(status, usersCreatedDate, getUsersWitchCreatedEarlierThan);
     }
 
+    @GetMapping("/tasks/all")
+    public List<TaskDto> getAll() {
+        return taskService.getAll();
+    }
+
+    @GetMapping("/tasks")
+    public TaskDto getById(Long id) {
+        return taskService.findById(id);
+    }
 
     @DeleteMapping("/tasks/delete")
     public TaskDto delete(TaskDto taskDto) {
@@ -47,7 +56,7 @@ public class TaskController {
     }
 
     @PutMapping("/tasks/update")
-    public TaskDto update(TaskDto taskDto) {
+    public TaskDto updateTaskInfo(TaskDto taskDto) {
         return taskService.update(taskDto);
     }
 

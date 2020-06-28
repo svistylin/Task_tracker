@@ -28,6 +28,20 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
+    public List<TaskDto> getAll() {
+        return taskRepository.findAll().stream()
+                .map(Task::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public TaskDto findById(Long id) {
+        return taskRepository.findById(id)
+                .orElseThrow(NoSuchElementException::new)
+                .toDto();
+    }
+
+    @Override
     public TaskDto save(TaskDto taskDto, JwtUser jwtUser) {
         User user = userRepository.findByIdAndDeletedFalse(jwtUser.getId()).orElseThrow(NoSuchElementException::new);
         Task save = taskRepository.save(taskDto.toTask());
@@ -60,8 +74,7 @@ public class TaskServiceImpl implements TaskService {
         taskSpecification.setStatus(stat);
         taskSpecification.setGetUsersWitchCreatedEarlierThan(getOlder);
         taskSpecification.setUsersCreatedDate(usersCreatedDate);
-        return taskRepository.findAll(taskSpecification)
-                .stream()
+        return taskRepository.findAll(taskSpecification).stream()
                 .map(Task::toDto)
                 .collect(Collectors.toList());
     }

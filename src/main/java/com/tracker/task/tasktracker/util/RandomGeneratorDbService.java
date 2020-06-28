@@ -64,6 +64,8 @@ public class RandomGeneratorDbService {
             task.setMaker(user);
             user.getTasks().add(saved);
             userRepository.save(user);
+            Task savedTask = taskRepository.save(task);
+            savedTask.setMaker(user);
             taskRepository.save(task);
         }
     }
