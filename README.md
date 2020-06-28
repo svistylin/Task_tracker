@@ -1,11 +1,11 @@
 # Task_Tracker 
 Rest application for task management.
 Technology used:
-Spring Boot
-Spring Data JPA 
-Swagger 2
-PostgreSQL
-Junit 5 
+Spring Boot,
+Spring Data JPA, 
+Swagger 2,
+PostgreSQL,
+Junit 5
 
 To start use this application: 
 1) Clone project: https://github.com/svistylin/Task_Tracker.git 
