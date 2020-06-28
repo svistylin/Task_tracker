@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @MappedSuperclass
@@ -22,7 +23,7 @@ BaseEntity {
 
     @CreatedDate
     @Column(name = "created")
-    private Date created;
+    private LocalDateTime created;
 
     @LastModifiedDate
     @Column(name = "updated")
@@ -35,11 +36,11 @@ BaseEntity {
         this.id = id;
     }
 
-    public Date getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 

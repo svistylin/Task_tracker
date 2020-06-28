@@ -29,9 +29,7 @@ public class TaskController {
     @GetMapping("/tasks/filter")
     public List<TaskDto> filter(@RequestParam(required = false) String status,
                                 @RequestParam(required = false) LocalDate usersCreatedDate,
-                                @RequestParam(required = false) boolean getUsersWitchCreatedEarlierThan
-
-    ) {
+                                @RequestParam(required = false) boolean getUsersWitchCreatedEarlierThan) {
         return taskService.filter(status, usersCreatedDate, getUsersWitchCreatedEarlierThan);
     }
 

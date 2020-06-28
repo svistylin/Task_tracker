@@ -12,8 +12,10 @@ import org.springframework.dao.PermissionDeniedDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import sun.security.timestamp.Timestamper;
 
 import java.nio.file.AccessDeniedException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -39,6 +41,7 @@ public class UserServiceImp implements UserService {
         ArrayList<Role> roles = new ArrayList<>();
         roles.add(role);
         User user = userDto.toUser();
+        user.setCreated(LocalDateTime.now());
         User saved = userRepository.save(user);
         saved.setRoles(roles);
         return userRepository.save(saved).toDto();
