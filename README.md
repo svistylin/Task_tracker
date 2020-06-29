@@ -3,6 +3,8 @@ Rest application for task management.
 Technology used:
 Spring Boot,
 Spring Data JPA, 
+Spring Security, 
+JWT,
 Swagger 2,
 PostgreSQL,
 Junit 5
