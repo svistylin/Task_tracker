@@ -6,6 +6,7 @@ import com.tracker.task.tasktracker.entity.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,7 +26,7 @@ public final class JwtUserFactory {
                 user.getPassword(),
                 mapToGrantedAuthorities(new ArrayList<>(user.getRoles())),
                 true,
-                user.getCreated()
+                Date.valueOf(user.getCreated().toLocalDate())
         );
     }
 
